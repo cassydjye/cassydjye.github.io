@@ -3,73 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Bienvenue chez Hello Kitty Cars</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #ffeef8;
-            color: #333;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background-color: #ffb3d9;
-            padding: 20px;
-            text-align: center;
-        }
-        header h1 {
-            font-size: 2.5em;
-            color: #fff;
-            margin: 0;
-        }
-        nav {
-            background-color: #ff99cc;
-            padding: 10px;
-            text-align: center;
-        }
-        nav a {
-            margin: 0 15px;
-            text-decoration: none;
-            color: #fff;
-            font-weight: bold;
-        }
-        main {
-            padding: 20px;
-        }
-        #about {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        .content {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-        }
-        .car-card {
-            background-color: #ffffff;
-            border: 2px solid #ffb3d9;
-            border-radius: 10px;
-            width: 300px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            text-align: center;
-            overflow: hidden;
-        }
-        .car-card img {
-            width: 100%;
-            border-radius: 10px 10px 0 0;
-        }
-        .car-card h2 {
-            color: #ff66b3;
-        }
-        .car-card p {
-            padding: 0 10px 10px;
-        }
-        footer {
-            background-color: #ffb3d9;
-            text-align: center;
-            padding: 10px;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
@@ -83,25 +17,40 @@
     <main>
         <section id="about">
             <h2>À propos de nous</h2>
-            <p>Bienvenue chez <strong>Hello Kitty Cars</strong>, où les passionnés de voitures de sport peuvent découvrir la légendaire Nissan GTR R34 Skyline dans un cadre charmant et adorable !</p>
+            <p>Bienvenue chez <strong>Hello Kitty Cars</strong>, où les passionnés de voitures de sport peuvent découvrir des modèles légendaires dans un univers adorable !</p>
         </section>
         <section id="cars" class="content">
             <div class="car-card">
-                <img src="nissan1.jpeg" alt="Nissan GTR R34 Skyline">
-                <h2>Nissan GTR R34 Skyline</h2>
-                <p>Élégante et rapide, parfaite pour tous les amateurs de vitesse !</p>
-                <p><strong>Prix : 50 000 €</strong></p>
+                <img src="images/nissan1.jpeg" alt="Nissan GTR R34 Skyline">
+                <h2>Nissan GTR R34</h2>
+                <p>Élégante et rapide, parfaite pour les amateurs de vitesse.</p>
+                <p><strong>50 000 €</strong></p>
             </div>
             <div class="car-card">
-                <img src="nissan2.jpeg" alt="Nissan GTR R34 Skyline">
-                <h2>Nissan GTR R34 Skyline</h2>
-                <p>Un classique qui attire tous les regards sur la route.</p>
-                <p><strong>Prix : 55 000 €</strong></p>
+                <img src="images/nissan2.jpeg" alt="Nissan GTR R34 Skyline">
+                <h2>Nissan GTR R34</h2>
+                <p>Un classique qui attire tous les regards.</p>
+                <p><strong>55 000 €</strong></p>
+            </div>
+            <div class="car-card">
+                <img src="images/supra.jpeg" alt="Toyota Supra">
+                <h2>Toyota Supra MK4</h2>
+                <p>Un monstre japonais avec un look emblématique.</p>
+                <p><strong>60 000 €</strong></p>
+            </div>
+            <div class="car-card">
+                <img src="images/mazda.jpeg" alt="Mazda RX-7">
+                <h2>Mazda RX-7</h2>
+                <p>Style, vitesse et moteur rotatif unique.</p>
+                <p><strong>45 000 €</strong></p>
             </div>
         </section>
     </main>
     <footer>
         © 2023 Hello Kitty Cars. Tous droits réservés.
     </footer>
+    <img src="images/hello-kitty.png" alt="Hello Kitty" class="kitty-img">
+
+    <script src="script.js"></script>
 </body>
 </html>
