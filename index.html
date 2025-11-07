@@ -1,56 +1,269 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Bienvenue chez Hello Kitty Cars</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Seedjye Malbrouck - IT Student Portfolio | Epitech Réunion">
+    <title>Seedjye Malbrouck | IT Student Portfolio</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>Hello Kitty Cars</h1>
-    </header>
-    <nav>
-        <a href="#about">À propos</a>
-        <a href="#cars">Voitures</a>
-        <a href="#contact">Contact</a>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-brand">Seedjye Malbrouck</div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
     </nav>
-    <main>
-        <section id="about">
-            <h2>À propos de nous</h2>
-            <p>Bienvenue chez <strong>Hello Kitty Cars</strong>, où les passionnés de voitures de sport peuvent découvrir des modèles légendaires dans un univers adorable !</p>
-        </section>
-        <section id="cars" class="content">
-            <div class="car-card">
-                <img src="images/nissan1.jpeg" alt="Nissan GTR R34 Skyline">
-                <h2>Nissan GTR R34</h2>
-                <p>Élégante et rapide, parfaite pour les amateurs de vitesse.</p>
-                <p><strong>50 000 €</strong></p>
-            </div>
-            <div class="car-card">
-                <img src="images/toto.jpg" alt="Nissan GTR Skyline">
-                <h2>Nissan GTR</h2>
-                <p>Un classique qui attire tous les regards.</p>
-                <p><strong>55 000 €</strong></p>
-            </div>
-            <div class="car-card">
-                <img src="images/supra.jpeg" alt="Toyota Supra">
-                <h2>Toyota Supra MK4</h2>
-                <p>Un monstre japonais avec un look emblématique.</p>
-                <p><strong>60 000 €</strong></p>
-            </div>
-            <div class="car-card">
-                <img src="images/mazda.jpeg" alt="Mazda RX-7">
-                <h2>Mazda RX-7</h2>
-                <p>Style, vitesse et moteur rotatif unique.</p>
-                <p><strong>45 000 €</strong></p>
-            </div>
-        </section>
-    </main>
-    <footer>
-        © 2023 Hello Kitty Cars. Tous droits réservés.
-    </footer>
-    <img src="images/hello-kitty.png" alt="Hello Kitty" class="kitty-img">
 
-    <script src="script.js"></script>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Seedjye Malbrouck</h1>
+            <h2 class="hero-subtitle">IT Student – Epitech Réunion</h2>
+            <p class="hero-description">Second-year programming student passionate about software development and technology</p>
+            <div class="hero-buttons">
+                <a href="#projects" class="btn btn-primary">View Projects</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>
+                        I am an IT student in my 2nd year at <strong>Epitech La Réunion</strong>, a prestigious programming school
+                        where I've been developing strong technical skills and hands-on project experience.
+                    </p>
+                    <p>
+                        Throughout my studies, I've completed several challenging <strong>C projects</strong>, including
+                        recreating essential Linux commands such as <code>ls</code>, <code>top</code>, and <code>sudo</code>,
+                        as well as recoding the fundamental <code>printf</code> function. I also developed a graphical project
+                        by recreating the classic game <strong>Duck Hunt</strong> using CSFML.
+                    </p>
+                    <p>
+                        As a <strong>TekTek ambassador</strong>, I actively represent the school during open days, forums,
+                        and school presentations, helping prospective students discover the opportunities at Epitech.
+                    </p>
+                    <p>
+                        I completed an internship at the <strong>DSI of a city administration</strong>, where I gained valuable
+                        web development experience by creating an employee directory with advanced features including card layouts,
+                        sorting, authentication, and search functionality using HTML, CSS, JavaScript, and Python.
+                    </p>
+                    <p>
+                        I've also worked on <strong>mobile development</strong>, creating a mobile/tablet application in Kotlin
+                        on Android Studio using collaborative workflows with GitHub and Git. This experience strengthened my
+                        teamwork and version control skills.
+                    </p>
+                    <p>
+                        Beyond technical development, I've improved my communication skills by helping users, answering calls,
+                        and handling support requests.
+                    </p>
+                    <div class="interests">
+                        <h3>Personal Interests</h3>
+                        <p>When I'm not coding, I enjoy sports, following Formula 1, and building fun web projects like a unique site combining Hello Kitty and cars!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Projects</h2>
+            <div class="projects-grid">
+
+                <!-- Project 1: Linux Commands -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Linux Commands Project">
+                        <div class="project-overlay">
+                            <a href="https://github.com/cassydjye/Linux_commands" class="project-link" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Linux Commands in C</h3>
+                        <p>Recreated essential Linux commands including ls, top, and sudo from scratch using C programming language, enhancing understanding of system processes and low-level operations.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">C</span>
+                            <span class="tech-tag">Linux</span>
+                            <span class="tech-tag">System Programming</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: Duck Hunt -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="assets/csfml_img.jpg" alt="Duck Hunt Game">
+                        <div class="project-overlay">
+                            <a href="assets/csfml_video.mp4" class="project-link" target="_blank" rel="noopener noreferrer">View video</a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Duck Hunt (CSFML)</h3>
+                            <p>Recreation of the classic Duck Hunt arcade game using CSFML graphics library, featuring animations, scoring system, refined controls, and improved game mechanics.</p>                        <div class="project-tech">
+                            <span class="tech-tag">C</span>
+                            <span class="tech-tag">CSFML</span>
+                            <span class="tech-tag">Game Development</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3: Fun Project -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="assets/hello-kitty.png" alt="Hello Kitty Cars">
+                        <div class="project-overlay">
+                            <a href="assets/hellokitty_cars/index.html" class="project-link" target="_blank" rel="noopener noreferrer">View Project</a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Hello Kitty Cars Website</h3>
+                        <p>A fun and creative web project combining two unlikely themes: Hello Kitty and cars. Built as a passion project to experiment with design and creativity.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title">Skills & Technologies</h2>
+            <div class="skills-grid">
+
+                <!-- C -->
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <img src="assets/c.png" alt="C">
+                    </div>
+                    <h3>C</h3>
+                </div>
+
+                <!-- Python -->
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <img src="assets/python.png" alt="Python">
+                    </div>
+                    <h3>Python</h3>
+                </div>
+
+                <!-- HTML -->
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <img src="assets/html.webp" alt="HTML">
+                    </div>
+                    <h3>HTML</h3>
+                </div>
+
+                <!-- CSS -->
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <img src="assets/css.png" alt="CSS">
+                    </div>
+                    <h3>CSS</h3>
+                </div>
+
+                <!-- JavaScript -->
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <img src="assets/js.png" alt="JavaScript">
+                    </div>
+                    <h3>JavaScript</h3>
+                </div>
+
+                <!-- Kotlin -->
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <img src="assets/kotlin.png" alt="Kotlin">
+                    </div>
+                    <h3>Kotlin</h3>
+                </div>
+
+                <!-- CSFML -->
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <img src="assets/csfml.png" alt="CSFML">
+                    </div>
+                    <h3>CSFML</h3>
+                </div>
+
+                <!-- GitHub -->
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <img src="assets/github.png" alt="GitHub">
+                    </div>
+                    <h3>GitHub</h3>
+                </div>
+
+                <!-- Git -->
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <img src="assets/git-logo.webp" alt="Git">
+                    </div>
+                    <h3>Git</h3>
+                </div>
+
+                <!-- Trello -->
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <img src="assets/trello.png" alt="Trello">
+                    </div>
+                    <h3>Trello</h3>
+                </div>
+
+                <!-- VSCode -->
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <img src="assets/vscode.png" alt="VSCode">
+                    </div>
+                    <h3>VSCode</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Seedjye Malbrouck. All rights reserved.</p>
+            <div class="social-links" id="contact">
+                <a href="https://github.com/cassydjye" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                    <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.17 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.167 22 16.418 22 12c0-5.523-4.477-10-10-10z"/>
+                    </svg>
+                </a>
+                <a href="https://www.linkedin.com/in/seedjye-malbrouck-99401934a/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                    <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="main.js"></script>
 </body>
 </html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linux Commands Demo</title>
+    <style>
+        body {
+            font-family: "Manrope", sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        h1, h2 {
+            color: #2c3e50;
+        }
+        .command-card {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .functions-list {
+            margin-top: 10px;
+            padding-left: 20px;
+        }
+        .note {
+            font-size: 0.9rem;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <h1>Linux Commands Recreated in C</h1>
+    <p>This demo page explains my recreation of some essential Linux commands in C, showcasing the functions used and a summary of each command's purpose.</p>
+
+    <div class="command-card">
+        <h2>my_ls</h2>
+        <p>Reimplementation of the <code>ls</code> command to list directory contents.</p>
+        <p><strong>Used functions:</strong></p>
+        <ul class="functions-list">
+            <li>opendir</li>
+            <li>readdir</li>
+            <li>stat</li>
+            <li>closedir</li>
+            <li>my_getopt</li>
+        </ul>
+    </div>
+
+    <div class="command-card">
+        <h2>my_top</h2>
+        <p>Recreation of <code>top</code> to display running processes in the terminal.</p>
+        <p><strong>Used functions:</strong></p>
+        <ul class="functions-list">
+            <li>opendir</li>
+            <li>readdir</li>
+            <li>closedir</li>
+            <li>mvprintw</li>
+            <li>get_pwuid</li>
+        </ul>
+    </div>
+
+    <div class="command-card">
+        <h2>my_sudo</h2>
+        <p>Simple version of <code>sudo</code> implemented collaboratively with a peer.</p>
+        <p><strong>Used functions:</strong></p>
+        <ul class="functions-list">
+            <li>getuid</li>
+            <li>getgid</li>
+            <li>fopen / fclose</li>
+            <li>strtok</li>
+        </ul>
+        <p class="note">Note: This project was completed as a two-person assignment.</p>
+    </div>
+</body>
+</html>
