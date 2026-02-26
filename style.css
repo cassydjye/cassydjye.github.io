@@ -632,6 +632,7 @@ img {
   }
 
   .nav-menu {
+    display: none;
     position: absolute;
     top: 100%;
     left: 0;
@@ -641,13 +642,10 @@ img {
     padding: var(--spacing-md);
     box-shadow: var(--shadow-lg);
     gap: var(--spacing-sm);
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height var(--transition-base);
   }
 
   .nav-menu.active {
-    max-height: 400px;
+    display: flex;
   }
 
   .nav-link::after {
