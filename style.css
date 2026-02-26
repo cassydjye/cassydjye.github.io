@@ -654,7 +654,6 @@ img {
 
   .hero {
     padding: var(--spacing-2xl) var(--spacing-md);
-    margin-top: 60px;
   }
 
   .hero-buttons {
