@@ -70,27 +70,26 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  const sections = document.querySelectorAll('section[id]');
+  const sections = document.querySelectorAll("section[id]");
 
-  function highlightNavLink() {
-    let current = "";
-
-    sections.forEach(section => {
-      const sectionTop = section.offsetTop - navbar.offsetHeight;
-      const sectionHeight = section.offsetHeight;
-
-      if (window.scrollY >= sectionTop - sectionHeight / 3) {
-        current = section.getAttribute("id");
+  const observerNav = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(link => {
+          link.classList.remove("active");
+          if (link.getAttribute("href") === `#${entry.target.id}`) {
+            link.classList.add("active");
+          }
+        });
       }
     });
+  }, {
+    threshold: 0.6
+  });
 
-    navLinks.forEach(link => {
-      link.classList.remove("active");
-      if (link.getAttribute("href") === `#${current}`) {
-        link.classList.add("active");
-      }
-    });
-  }
+  sections.forEach(section => {
+    observerNav.observe(section);
+  });
 
   window.addEventListener('scroll', highlightNavLink);
 
