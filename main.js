@@ -73,20 +73,21 @@ document.addEventListener('DOMContentLoaded', function() {
   const sections = document.querySelectorAll('section[id]');
 
   function highlightNavLink() {
-    const scrollPosition = window.scrollY + navbar.offsetHeight + 100;
+    let current = "";
 
     sections.forEach(section => {
-      const sectionTop = section.offsetTop;
+      const sectionTop = section.offsetTop - navbar.offsetHeight;
       const sectionHeight = section.offsetHeight;
-      const sectionId = section.getAttribute('id');
 
-      if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-        navLinks.forEach(link => {
-          link.classList.remove('active');
-          if (link.getAttribute('href') === `#${sectionId}`) {
-            link.classList.add('active');
-          }
-        });
+      if (window.scrollY >= sectionTop - sectionHeight / 3) {
+        current = section.getAttribute("id");
+      }
+    });
+
+    navLinks.forEach(link => {
+      link.classList.remove("active");
+      if (link.getAttribute("href") === `#${current}`) {
+        link.classList.add("active");
       }
     });
   }
