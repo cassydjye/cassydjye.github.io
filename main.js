@@ -7,11 +7,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
   navToggle.addEventListener('click', function() {
     navMenu.classList.toggle('active');
+      highlightNavLink();
   });
 
   navLinks.forEach(link => {
     link.addEventListener('click', function() {
       navMenu.classList.remove('active');
+        highlightNavLink();
     });
   });
 
