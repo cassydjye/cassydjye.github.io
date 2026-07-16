@@ -12,9 +12,9 @@
     "preview:static": "python3 -m http.server 3000 --directory out"
   },
   "dependencies": {
-    "next": "16.2.10",
-    "react": "19.2.7",
-    "react-dom": "19.2.7"
+    "next": "^15.5.20",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7"
   },
   "devDependencies": {
     "@types/node": "^24.0.0",
