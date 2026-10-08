@@ -1,49 +1,12 @@
+'use client';
+
+import { useEffect, useState } from 'react';
+import { getSupabaseClient } from '@/lib/supabase/client';
+import { starterProjects } from '@/lib/projects/starter';
+import type { PortfolioProject } from '@/lib/supabase/types';
 import { Header } from '@/components/Header';
 import { ArrowUpRight, GithubIcon, LinkedinIcon } from '@/components/Icons';
 import { ProjectVisual } from '@/components/ProjectVisual';
-
-const projects = [
-  {
-    number: '01',
-    title: 'Linux commands, rebuilt in C',
-    description:
-      'A collection of low-level projects recreating familiar Linux tools such as ls, top and sudo. The work focused on memory management, processes, permissions and clean command-line behavior.',
-    tags: ['C', 'Linux', 'System programming'],
-    href: 'https://github.com/cassydjye/Linux_commands',
-    linkLabel: 'View repository',
-    kind: 'terminal' as const,
-  },
-  {
-    number: '02',
-    title: 'Duck Hunt recreation',
-    description:
-      'A graphical C project built with CSFML. I worked on the game loop, sprite animation, scoring, input handling and the small details that make a simple arcade game feel responsive.',
-    tags: ['C', 'CSFML', 'Game development'],
-    href: '/assets/csfml_video.mp4',
-    linkLabel: 'Watch the demo',
-    kind: 'duck' as const,
-  },
-   {
-    number: '03',
-    title: 'Hello Kitty Cars',
-    description:
-      'A deliberately playful website combining Hello Kitty with Japanese car culture. It was a way to experiment with visual direction, layout and front-end interactions outside school assignments.',
-    tags: ['HTML', 'CSS', 'JavaScript'],
-    href: '/projects/hellokitty-cars/',
-    linkLabel: 'Open the project',
-    kind: 'kitty' as const,
-  },
-  {
-    number: '04',
-    title: 'E-Girls website',
-    description:
-      'The official website for E-Girls, an association helping women and girls discover sectors where they are still underrepresented through events, workshops and accessible resources.',
-    tags: ['React', 'Next.js', 'TypeScript'],
-    href: 'https://egirls.fr',
-    linkLabel: 'Open the website',
-    kind: 'girls' as const,
-  },
-];
 
 const skillGroups = [
   { label: 'Languages', value: 'C, Python, JavaScript, Kotlin' },
@@ -53,6 +16,15 @@ const skillGroups = [
 ];
 
 export default function Home() {
+  const [projects, setProjects] = useState<PortfolioProject[]>(starterProjects);
+  useEffect(() => {
+    let active = true;
+    getSupabaseClient().from('projects').select('*').eq('published', true)
+      .order('display_order', { ascending: true }).then(({ data, error }) => {
+        if (active && !error && data) setProjects(data as PortfolioProject[]);
+      });
+    return () => { active = false; };
+  }, []);
   return (
     <>
       <Header />
@@ -124,17 +96,17 @@ export default function Home() {
               {projects.map((project) => (
                 <article className="project" key={project.title}>
                   <div className="project-copy">
-                    <p className="project-number">{project.number}</p>
+                    <p className="project-number">{String(projects.indexOf(project) + 1).padStart(2, '0')}</p>
                     <h3>{project.title}</h3>
                     <p>{project.description}</p>
                     <ul className="tag-list" aria-label="Technologies used">
-                      {project.tags.map((tag) => <li key={tag}>{tag}</li>)}
+                      {project.technologies.map((tag) => <li key={tag}>{tag}</li>)}
                     </ul>
-                    <a className="project-link" href={project.href} target="_blank" rel="noreferrer">
-                      {project.linkLabel} <ArrowUpRight size={17} />
+                    <a className="project-link" href={project.demo_url || project.github_url || "#projects"} target="_blank" rel="noreferrer">
+                      {project.demo_url ? "Open project" : "View repository"} <ArrowUpRight size={17} />
                     </a>
                   </div>
-                  <ProjectVisual kind={project.kind} />
+                  <ProjectVisual imageUrl={project.image_url} title={project.title} kind={project.slug === "egirls" ? "girls" : "terminal"} />
                 </article>
               ))}
             </div>

@@ -1,21 +1,12 @@
-import Image from 'next/image';
-
 type ProjectVisualProps = {
-  kind: 'terminal' | 'duck' | 'kitty' | 'girls';
+  kind: 'terminal' | 'girls';
+  imageUrl?: string | null;
+  title?: string;
 };
 
-export function ProjectVisual({ kind }: ProjectVisualProps) {
-  if (kind === 'duck') {
-    return (
-      <div className="project-visual project-visual-image">
-        <Image
-          src="/assets/csfml_img.jpg"
-          alt="Screenshot from the Duck Hunt recreation"
-          fill
-          sizes="(max-width: 760px) 100vw, 50vw"
-        />
-      </div>
-    );
+export function ProjectVisual({ kind, imageUrl, title }: ProjectVisualProps) {
+  if (imageUrl && /^https:\/\//.test(imageUrl)) {
+    return <div className="project-visual project-visual-image"><img src={imageUrl} alt={`Screenshot of ${title || 'project'}`} loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover' }} /></div>;
   }
 
   if (kind === 'girls') {
@@ -30,47 +21,17 @@ export function ProjectVisual({ kind }: ProjectVisualProps) {
     );
   }
 
-  if (kind === 'kitty') {
-    return (
-      <div className="project-visual kitty-visual" aria-hidden="true">
-        <div className="kitty-window">
-          <div className="kitty-window-bar">
-            <span />
-            <span />
-            <span />
-          </div>
-          <div className="kitty-copy">
-            <p>Hello Kitty</p>
-            <strong>meets Japanese cars.</strong>
-          </div>
-          <Image
-            src="/projects/hellokitty-cars/images/hello-kitty.png"
-            alt=""
-            width={245}
-            height={205}
-          />
-        </div>
-      </div>
-    );
-  }
-
+  // No screenshot yet: use a neutral project-specific cover rather than
+  // displaying an unrelated terminal mockup on every project.
   return (
-    <div className="project-visual terminal-visual" aria-hidden="true">
-      <div className="terminal-topbar">
-        <span />
-        <span />
-        <span />
-        <p>seedjye@linux</p>
+    <div className="project-visual project-cover" aria-label={`Aperçu de ${title || 'projet'} sans capture d'écran`}>
+      <div className="project-cover-top"><span>SELECTED WORK</span><span>↗</span></div>
+      <div className="project-cover-content">
+        <span className="project-cover-symbol" aria-hidden="true">{(title || 'P').trim().slice(0, 1).toUpperCase()}</span>
+        <p>{title || 'Projet'}</p>
+        <span className="project-cover-caption">APPLICATION · DÉVELOPPEMENT</span>
       </div>
-      <div className="terminal-body">
-        <p><em>$</em> ./my_ls -la</p>
-        <p className="terminal-muted">drwxr-xr-x&nbsp;&nbsp;src</p>
-        <p className="terminal-muted">-rw-r--r--&nbsp;&nbsp;Makefile</p>
-        <p><em>$</em> ./my_top</p>
-        <p className="terminal-accent">processes: 142&nbsp;&nbsp;running: 3</p>
-        <p><em>$</em> ./my_sudo command</p>
-        <span className="terminal-cursor" />
-      </div>
+      <div className="project-cover-bottom"><span>PORTFOLIO / PROJECT</span><span>SM.</span></div>
     </div>
   );
 }
