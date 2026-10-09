@@ -31,7 +31,27 @@ jobs:
         uses: actions/configure-pages@v5
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci --no-audit --no-fund
+
+      - name: Validate public Supabase configuration
+        env:
+          NEXT_PUBLIC_SUPABASE_URL: ${{ vars.NEXT_PUBLIC_SUPABASE_URL }}
+          NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ vars.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
+        run: |
+          if [ -z "$NEXT_PUBLIC_SUPABASE_URL" ] || [ -z "$NEXT_PUBLIC_SUPABASE_ANON_KEY" ]; then
+            echo "::error::Configure NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY in Settings > Secrets and variables > Actions > Variables."
+            exit 1
+          fi
+          case "$NEXT_PUBLIC_SUPABASE_URL" in
+            https://*.supabase.co) ;;
+            *) echo "::error::NEXT_PUBLIC_SUPABASE_URL must be an https://*.supabase.co URL."; exit 1 ;;
+          esac
+          case "$NEXT_PUBLIC_SUPABASE_URL" in
+            *YOUR_PROJECT*|*your_project*) echo "::error::Replace the example Supabase URL."; exit 1 ;;
+          esac
+
+      - name: TypeScript check
+        run: npm run check
 
       - name: Build
         env:

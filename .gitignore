@@ -6,3 +6,6 @@ out/
 .env*
 
 !.env.example
+
+# Generated TypeScript incremental build state
+tsconfig.tsbuildinfo
