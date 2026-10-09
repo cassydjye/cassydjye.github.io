@@ -19,10 +19,16 @@ export default function Home() {
   const [projects, setProjects] = useState<PortfolioProject[]>(starterProjects);
   useEffect(() => {
     let active = true;
-    getSupabaseClient().from('projects').select('*').eq('published', true)
-      .order('display_order', { ascending: true }).then(({ data, error }) => {
-        if (active && !error && data) setProjects(data as PortfolioProject[]);
-      });
+    try {
+      getSupabaseClient().from('projects').select('*').eq('published', true)
+        .order('display_order', { ascending: true }).then(({ data, error }) => {
+          if (active && !error && data) setProjects(data as PortfolioProject[]);
+          if (error) console.error('Could not load portfolio projects:', error.message);
+        });
+    } catch (error) {
+      // Keep starter projects visible if public Supabase configuration is unavailable.
+      console.error('Portfolio project connection unavailable:', error);
+    }
     return () => { active = false; };
   }, []);
   return (
