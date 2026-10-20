@@ -12,10 +12,10 @@
     "preview:static": "python3 -m http.server 3000 --directory out"
   },
   "dependencies": {
-    "next": "^15.5.20",
+    "@supabase/supabase-js": "^2.57.0",
+    "next": "^15.5.28",
     "react": "^19.2.7",
-    "react-dom": "^19.2.7",
-    "@supabase/supabase-js": "^2.57.0"
+    "react-dom": "^19.2.7"
   },
   "devDependencies": {
     "@types/node": "^24.0.0",
@@ -24,7 +24,7 @@
     "typescript": "^5.9.0"
   },
   "overrides": {
-    "postcss": "8.5.19"
+    "postcss": "8.5.29"
   },
   "engines": {
     "node": ">=22 <23",
